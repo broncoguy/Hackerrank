@@ -19,7 +19,7 @@ public class Solution {
         int [] rankM = new int[m];
         int store = 0;
 
-        for(int j = 0; j < n; j++){
+        for(int j = 0; j < n; j++){ //rank the scores array
             if(k < (n-1)){
                 if(scores[j] > scores[k+1]){
                     rank[j] = rankN;
@@ -41,9 +41,9 @@ public class Solution {
             }
         }
         
-        for(int i = 0; i < m; i++){
+        for(int i = 0; i < m; i++){ //rank alice scores by comparing to ranked scores
             
-            for(int j2 = (n-1) - store; j2 >= 0; j2--){
+            for(int j2 = (n-1) - store; j2 >= 0; j2--){ //reduce the size of the array each rank find to save time when comparing values
                 if(alice[i] > scores[j2]){
                     rankM[i] = rank[j2];
                     store = (n-1) - j2;
@@ -63,7 +63,7 @@ public class Solution {
             }
         }
         
-        return rankM;
+        return rankM; //return alice scores
     }
 
     private static final Scanner scanner = new Scanner(System.in);
